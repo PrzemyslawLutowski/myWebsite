@@ -1,0 +1,26 @@
+services:
+  
+  db:
+    image: postgres:16.3
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=my_website_dev_db
+      - POSTGRES_USER=my_website_dev_user
+      - POSTGRES_PASSWORD=Banzai123!
+
+
+  web:
+    build: .
+    command: python /myWebsite/manage.py runserver 0.0.0.0:8000
+    restart: always
+    volumes:
+      - .:/myWebsite
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings.local
+      - POSTGRES_DB=my_website_dev_db
+      - POSTGRES_USER=my_website_dev_user
+      - POSTGRES_PASSWORD=Banzai123!
