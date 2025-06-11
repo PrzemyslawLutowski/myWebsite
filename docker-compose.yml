@@ -6,9 +6,9 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=my_website_dev_db
-      - POSTGRES_USER=my_website_dev_user
-      - POSTGRES_PASSWORD=Banzai123!
+      - POSTGRES_DB=my_website_pre_prod_db
+      - POSTGRES_USER=my_website_pre_prod_user
+      - POSTGRES_PASSWORD=Milka417%
 
 
   web:
@@ -20,7 +20,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DJANGO_SETTINGS_MODULE=core.settings.local
-      - POSTGRES_DB=my_website_dev_db
-      - POSTGRES_USER=my_website_dev_user
-      - POSTGRES_PASSWORD=Banzai123!
+      - DJANGO_SETTINGS_MODULE=core.settings.pre_prod
+      - POSTGRES_DB=my_website_pre_prod_db
+      - POSTGRES_USER=my_website_pre_prod_user
+      - POSTGRES_PASSWORD=Milka417%
