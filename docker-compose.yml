@@ -24,3 +24,4 @@ services:
       - POSTGRES_DB=my_website_pre_prod_db
       - POSTGRES_USER=my_website_pre_prod_user
       - POSTGRES_PASSWORD=Milka417%
+      - SECRET_KEY=django-insecure-88=cvf+q0nz1sj91-+z#pvsh45-&=siu0v47n(4xsw9n$ab9$p
