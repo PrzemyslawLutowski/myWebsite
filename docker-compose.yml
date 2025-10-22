@@ -1,0 +1,15 @@
+services:
+ web_dev:
+   container_name: mywebsite_web_develop
+   build:
+     context: .
+     dockerfile: Dockerfile
+   command: python /mywebsite/manage.py runserver 0.0.0.0:8000
+   restart: unless-stopped
+   volumes:
+     - .:/mywebsite
+   ports:
+     - "8020:8000"
+   env_file:
+     - ./.env
+
