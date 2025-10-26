@@ -18,7 +18,7 @@ services:
 
  nginx_staging:
    restart: unless-stopped
-   container_name: plsite_nginx_staging
+   container_name: mywebsite_v1_nginx_staging
    build:
      context: ./nginx
      dockerfile: Dockerfile.staging
