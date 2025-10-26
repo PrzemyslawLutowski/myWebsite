@@ -1,5 +1,5 @@
 services:
- web_staging:
+ v1_web_staging:
    restart: unless-stopped
    container_name: mywebsite_v1_web_staging
    build:
@@ -30,7 +30,7 @@ services:
    networks:
      private:
    depends_on:
-     - web_staging
+     - v1_web_staging
 
 
 volumes:
