@@ -35,6 +35,11 @@ ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default=[]).split(' ')
 CSRF_USE_SESSIONS = True
 CSRF_TRUSTED_ORIGINS = ['https://195.238.122.125:8072']
 CSRF_COOKIE_DOMAIN = 'https://195.238.122.125:8072'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# (opcjonalne, ale dobre praktyki)
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
