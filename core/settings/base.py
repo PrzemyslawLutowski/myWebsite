@@ -14,6 +14,8 @@ from pathlib import Path
 from decouple import config
 import os
 
+from django.conf.global_settings import CSRF_USE_SESSIONS
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -29,6 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', default=0)
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default=[]).split(' ')
+
+CSRF_USE_SESSIONS = True
 
 # Application definition
 
