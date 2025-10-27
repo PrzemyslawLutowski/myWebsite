@@ -1,3 +1,5 @@
+from django.conf.global_settings import CSRF_TRUSTED_ORIGINS, CSRF_COOKIE_DOMAIN
+
 from .base import *
 
 
