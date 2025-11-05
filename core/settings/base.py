@@ -14,7 +14,7 @@ from pathlib import Path
 from decouple import config
 import os
 
-from django.conf.global_settings import CSRF_USE_SESSIONS
+# from django.conf.global_settings import CSRF_USE_SESSIONS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -33,14 +33,7 @@ DEBUG = os.environ.get('DEBUG', default=0)
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default=[]).split(' ')
 
 CSRF_USE_SESSIONS = True
-CSRF_TRUSTED_ORIGINS = ['https://*.lutoslaw:8072', 'https://lutoslaw:8072']
-CSRF_COOKIE_DOMAIN = 'https://lutoslaw:8072'
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# (opcjonalne, ale dobre praktyki)
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -94,7 +87,7 @@ DATABASES = {
         'USER': os.environ.get('POSTGRES_USER', 'user'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
-        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+        'PORT': os.environ.get('POSTGRES_PORT', 'port'),
     }
 }
 
