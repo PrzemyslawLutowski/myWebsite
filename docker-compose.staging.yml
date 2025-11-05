@@ -6,8 +6,8 @@ services:
      context: .
      dockerfile: Dockerfile.staging
    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
-   #volumes:
-   #  - .:/ppms
+   volumes:
+     - .:/ppms
    expose:
      - 8000
    networks:
@@ -33,8 +33,8 @@ services:
      - v1_web_staging
 
 
-#volumes:
-# certs:
+volumes:
+ certs:
 
 
 networks:
