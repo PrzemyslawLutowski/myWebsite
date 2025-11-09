@@ -7,8 +7,8 @@ services:
      dockerfile: Dockerfile_staging
    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
    volumes:
-     - .:/ppms
-     - ./static:/mywebsite_v1/static
+     - .:/mywebsite
+     - ./static:/static/
    expose:
      - 8000
    networks:
@@ -25,7 +25,7 @@ services:
      dockerfile: Dockerfile.staging
    volumes:
      - ./certs:/certs
-     - ./static:/mywebsite_v1/static
+     - ./static:/static/
    ports:
      - "8071:80"
      - "8072:443"
@@ -36,7 +36,8 @@ services:
 
 
 volumes:
- certs:
+  static_files:
+  certs:
 
 
 networks:
