@@ -1,15 +1,11 @@
 FROM python:3.10.12-bookworm
 
-
 WORKDIR /mywebsite_v1
-
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-
 COPY requirements.txt /mywebsite_v1/
-
 
 RUN apt-get update && \
    apt-get install -y --no-install-recommends \
@@ -21,12 +17,8 @@ RUN apt-get update && \
    && apt-get purge -y --auto-remove build-essential libpq-dev \
    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-
 COPY . /mywebsite_v1/
 
+RUN sed -i 's/\r$//g' ./entrypoint.staging.sh && chmod +x ./entrypoint.staging.sh
 
-#RUN sed -i 's/\r$//g' ./entrypoint.staging.sh && chmod +x ./entrypoint.staging.sh
-
-
-#ENTRYPOINT ["/mywebsite_v1/entrypoint.staging.sh"]
-
+ENTRYPOINT ["/mywebsite_v1/entrypoint.staging.sh"]
