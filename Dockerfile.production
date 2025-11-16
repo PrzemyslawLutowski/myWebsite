@@ -21,4 +21,4 @@ COPY . /mywebsite/
 
 RUN sed -i 's/\r$//g' ./entrypoint.production.sh && chmod +x ./entrypoint.production.sh
 
-ENTRYPOINT ["/mywebsite/entrypoint.staging.sh"]
+ENTRYPOINT ["/mywebsite/entrypoint.production.sh"]
