@@ -4,7 +4,7 @@ services:
    container_name: mywebsite_v1_web_staging
    build:
      context: .
-     dockerfile: Dockerfile_staging
+     dockerfile: Dockerfile.staging
    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
    volumes:
      - .:/mywebsite
@@ -15,7 +15,6 @@ services:
      private:
    env_file:
      - ./.env
-
 
  nginx_staging:
    restart: unless-stopped
@@ -34,11 +33,9 @@ services:
    depends_on:
      - v1_web_staging
 
-
 volumes:
   static_files:
   certs:
-
 
 networks:
  private:

@@ -1,0 +1,43 @@
+services:
+ mywebsite_web_production:
+   restart: unless-stopped
+   container_name: mywebsite_web_production
+   build:
+     context: .
+     dockerfile: Dockerfile.production
+   command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
+   volumes:
+     - .:/mywebsite
+     - ./static:/static/
+   expose:
+     - 8000
+   networks:
+     private:
+   env_file:
+     - ./.env
+
+ mywebsite_nginx_production:
+   restart: unless-stopped
+   container_name: mywebsite_nginx_production
+   build:
+     context: ./nginx
+     dockerfile: Dockerfile.production
+   volumes:
+     - ./certs:/certs
+     - ./static:/static/
+   ports:
+     - "8010:80"
+     - "8011:443"
+   networks:
+     private:
+   depends_on:
+     - mywebsite_web_production
+
+volumes:
+  static_files:
+  certs:
+
+networks:
+ private:
+   driver: bridge
+   name: mywebsite_network_production
