@@ -1,0 +1,4 @@
+from .base import *
+
+CSRF_TRUSTED_ORIGINS = ['https://*.195.238.122.125:8072', 'https://195.238.122.125:8072']
+CSRF_COOKIE_DOMAIN = 'https://195.238.122.125:8072'
