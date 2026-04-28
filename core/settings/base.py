@@ -14,6 +14,8 @@ from pathlib import Path
 from decouple import config
 import os
 
+from django.conf.global_settings import STATICFILES_DIRS
+
 # from django.conf.global_settings import CSRF_USE_SESSIONS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
     'blog.apps.BlogConfig',
     'main.apps.MainConfig',
 ]
@@ -127,9 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR, 'static_files']
-STATIC_ROOT = BASE_DIR / "../static"
-
+# STATICFILES_DIRS = [BASE_DIR, 'static_files']
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_files')]
+# STATIC_ROOT = BASE_DIR / "../static"
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
