@@ -1,14 +1,14 @@
-# from django.http import Http404
-# from django.shortcuts import render
-# from .models import BlogPost
-#
-#
-# def post_list(request):
-#     posts = BlogPost.objects.all()
-#     return render(
-#         request,
-#         "blog/post/list.html",
-#         {'posts': posts})
+from django.http import Http404
+from django.shortcuts import render
+from .models import BlogPost
+
+
+def post_list(request):
+    posts = BlogPost.objects.all()
+    return render(
+        request,
+        "blog/post/list.html",
+        {'posts': posts})
 #
 #
 # def post_detail(request, id):
@@ -19,3 +19,7 @@
 #
 #     return render(request, "blog/post/list.html",
 #                   {'post': post})
+
+
+
+
